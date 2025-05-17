@@ -1,0 +1,125 @@
+@import "../../variables";
+@import "../../mixins";
+
+.orderInvitation {
+  padding: 50px 76.8px;
+  @include flex-center;
+  flex-direction: column;
+
+  .orderWindow {
+    position: relative;
+    @include flex-center;
+    flex-direction: column;
+
+    .arcText {
+      overflow: visible;
+      width: 110%;
+      height: 250px;
+      position: absolute;
+      z-index: 1000;
+      top: 10px;
+      left: 50%;
+      transform: translateX(5%) rotate(0deg);
+      pointer-events: none;
+
+      .textOnArc {
+        font-size: 65px;
+        font-weight: 600;
+        fill: $DarkTeal;
+        text-transform: uppercase;
+        font-family: "ApfelGrotezk-Regular", sans-serif;
+      }
+    }
+
+    img {
+      transform: scale(1.3);
+      height: 100%;
+      width: 350px;
+      border-radius: 500px 500px 80px 80px;
+      margin: 128px 0;
+    }
+
+    .orderBtn {
+      background-color: $Pink;
+      outline: 8px solid $OffWhite;
+      border: 5px solid transparent;
+      position: absolute;
+      border-radius: 50%;
+      bottom: -20px;
+      @include flex-center;
+      transition: all 0.3s ease;
+      overflow: hidden;
+
+      a {
+        font-size: 24px;
+        color: $OffWhite;
+        border-radius: 50%;
+        padding: 32px;
+        position: relative;
+        @include flex-center;
+        aspect-ratio: 1;
+        z-index: 2;
+        transition: color 0.4s ease;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: $OffWhite;
+        z-index: 1;
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(0.2);
+        transition: all 0.4s ease;
+      }
+
+      &:hover {
+        border-color: $Pink;
+
+        &::before {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        a {
+          color: $DarkTeal;
+        }
+      }
+
+      .hover-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $OffWhite;
+        border-radius: inherit;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 1;
+        transform: scale(0);
+        transition: all 0.4s ease;
+      }
+
+      &:hover {
+        .hover-bg {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+
+  .invitationTextBox {
+    width: 42%;
+    text-align: center;
+    font-size: 17.6px;
+    font-weight: 400;
+    margin-top: 60px;
+
+    .textContent {
+      margin: 17.6px 0;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@import "../../variables";
+@import "../../mixins";
+
+.bestsellersMarquee {
+  padding: 50px 0;
+  width: 100%;
+  overflow: hidden;
+  // height: 500px;
+  min-height: 150vh;
+  position: relative;
+  .cakeSvgContainer img {
+    width: 160px;
+    margin-left: 120px;
+    margin-top: 100px;
+    will-change: transform;
+  }
+  .diagonalMarquee {
+    position: absolute;
+    width: 300%;
+    display: flex;
+    transform: rotate(-10deg);
+    &__inner {
+      display: flex;
+      min-width: 200%;
+      span {
+        font-size: 100px;
+        font-weight: 900;
+        margin: 0 40px;
+        white-space: nowrap;
+        user-select: none;
+        font-family: "ApfelGrotezk-Regular", sans-serif;
+
+        &.outlined {
+          color: transparent;
+          -webkit-text-stroke: 1px $Teal;
+        }
+        &.filled {
+          color: $Teal;
+        }
+      }
+    }
+  }
+
+  .row-0 {
+    top: 0;
+  }
+  .row-1 {
+    top: 164px;
+  }
+  .row-2 {
+    top: 328px;
+  }
+  .row-3 {
+    top: 492px;
+  }
+
+  .left .diagonalMarquee__inner {
+    animation: moveLeft 30s linear infinite;
+  }
+
+  .right .diagonalMarquee__inner {
+    animation: moveRight 40s linear infinite;
+  }
+  .cardBox .container {
+    max-width: 1600px;
+    @include space-between;
+    gap: 70px;
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

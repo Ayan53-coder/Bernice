@@ -1,0 +1,77 @@
+@import "../../variables";
+@import "../../mixins";
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  .container {
+    .row {
+      flex-direction: column;
+      justify-content: end;
+      .heroImageBox {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        border-radius: 0px 0px 35px 35px;
+
+        .heroImage {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.1s linear;
+          will-change: transform;
+        }
+
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background-color: $DarkTeal;
+          opacity: 0.25;
+        }
+      }
+
+      .heroContent {
+        padding: 57.6px 0;
+        position: relative;
+        z-index: 1;
+        @include space-between;
+        .heroTitle {
+          width: 70%;
+          font-size: 132px;
+          font-weight: 900;
+          line-height: 160px;
+          letter-spacing: -5px;
+          color: $OffWhite;
+        }
+        a {
+          position: relative;
+          z-index: -1000;
+          .lottieContainer {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            cursor: pointer;
+            @include flex-center;
+            &:hover .indulgeText {
+              transform: translate(-10%, 70%) scale(0.8) rotate(45deg);
+            }
+          }
+
+          .indulgeText {
+            position: absolute;
+            font-size: 32px;
+            font-weight: 600;
+            color: $OffWhite;
+            z-index: 1000;
+            transform: translateY(10px) rotate(20deg);
+            transition: transform 0.3s ease;
+          }
+        }
+      }
+    }
+  }
+}

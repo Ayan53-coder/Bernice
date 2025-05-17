@@ -1,0 +1,258 @@
+@import "../variables";
+@import "../mixins";
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease;
+  &.scrolled {
+    background-color: white;
+    .container {
+      .row {
+        .navBar {
+          .navList .navItem a,
+          .headerIcons .lang,
+          .headerIcons .searchIcon,
+          .headerIcons .bagIcon,
+          .headerIcons .menu,
+          .headerIcons .cartCount {
+            color: $DarkTeal;
+            // цвет черный для прокрученного состояния
+          }
+        }
+      }
+    }
+  }
+
+  &.home {
+    .headerIcons {
+      color: $OffWhite;
+    }
+  }
+
+  &.black-elements {
+    background-color: white;
+
+    .navList .navItem a,
+    .headerIcons .lang,
+    .headerIcons .searchIcon,
+    .headerIcons .bagIcon,
+    .headerIcons .menu,
+    .headerIcons .cartCount {
+      color: $DarkTeal !important;
+      &:hover {
+        color: $Pink !important;
+      }
+    }
+  }
+
+  .container {
+    padding-block: 30px;
+    .row {
+      @include space-between;
+      .logo img {
+        max-height: 33px;
+      }
+      .navBar {
+        @include space-between;
+        gap: 48px;
+        .navList {
+          display: flex;
+          gap: 64px;
+          .mobileLogo img {
+            display: none;
+          }
+          .instagramIcon {
+            display: none;
+          }
+          .navItem {
+            color: $OffWhite;
+            a {
+              display: inline-block;
+              color: $OffWhite;
+              transition: color 0.2s ease, transform 0.3s ease;
+              @include hover-pinkScale;
+            }
+          }
+        }
+        .headerIcons {
+          @include flex-center;
+          gap: 24px;
+          cursor: pointer;
+          .lang {
+            color: $OffWhite;
+            margin-left: 48px;
+            @include hover-pinkScale;
+            @include flex-center;
+          }
+          .bagBtn {
+            background-color: transparent;
+            border: none;
+            width: fit-content;
+          }
+          .searchIcon,
+          .bagIcon {
+            color: $OffWhite;
+            font-size: 24px;
+            @include hover-pinkScale;
+          }
+          .cartCount {
+            color: $OffWhite;
+          }
+          .menu {
+            display: none;
+            font-size: 24px;
+            color: $OffWhite;
+            @include hover-pinkScale;
+          }
+        }
+      }
+    }
+  }
+}
+
+// .navList.active_flex {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   background: rgba(0, 0, 0, 0.7);
+//   padding: 20px;
+//   position: absolute;
+//   top: 100%;
+//   left: 0;
+//   right: 0;
+// }
+
+// RESPONSIVE DESIGN
+@media (max-width: 1130px) {
+  .header {
+    .container {
+      .row {
+        .navBar {
+          .headerIcons {
+            .lang {
+              margin-left: 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1064px) {
+  .header {
+    .container {
+      .row {
+        .navBar {
+          .navList {
+            gap: 35px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 968px) {
+  .header {
+    .container {
+      .row {
+        .logo img {
+          max-height: 20px;
+          margin-right: 20px;
+        }
+        .navBar {
+          gap: 0px;
+          .navList {
+            .navItem {
+              font-size: 16px;
+            }
+          }
+          .headerIcons .lang,
+          .headerIcons .bagIcon,
+          .headerIcons .searchIcon {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 685px) {
+  .header {
+    .container {
+      .row {
+        .navBar {
+          position: relative;
+          flex-direction: column;
+          align-items: flex-end;
+          .navList {
+            position: absolute;
+            top: 150%;
+            right: 0;
+            display: none;
+            flex-direction: column;
+            background-color: $DarkTeal;
+            border-radius: 15px;
+            padding: 25px;
+            gap: 20px;
+            .mobileLogo img {
+              display: block;
+              max-height: 14px;
+              width: auto;
+              margin-bottom: 15px;
+            }
+            &.active_flex {
+              display: flex;
+            }
+            .navItem a {
+              color: $OffWhite;
+              font-size: 16px;
+            }
+            .navItem .instagramIcon {
+              display: block;
+              color: $OffWhite;
+              font-size: 20px;
+            }
+          }
+          .headerIcons {
+            .menu {
+              display: block;
+            }
+            .lang,
+            .bagIcon,
+            .searchIcon {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 380px) {
+  .header {
+    .container {
+      .row {
+        .logo img {
+          max-height: 15px;
+        }
+        .navBar {
+          .headerIcons {
+            gap: 13px;
+            .menu,
+            .lang,
+            .bagIcon,
+            .searchIcon {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

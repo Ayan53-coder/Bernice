@@ -1,0 +1,239 @@
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('./assets/fonts/ApfelGrotezk-Regular.woff2') format('woff2'),
+       url('./assets/fonts/ApfelGrotezk-Regular.woff') format('woff'),
+       url('./assets/fonts/ApfelGrotezk-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apfel Grotezk';
+  src: url('./assets/fonts/ApfelGrotezk-Fett.woff2') format('woff2'),
+       url('./assets/fonts/ApfelGrotezk-Fett.woff') format('woff'),
+       url('./assets/fonts/ApfelGrotezk-Fett.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.S12W100 {
+  font-weight: 100;
+  font-size: 12px;
+}
+.S12W200 {
+  font-weight: 200;
+  font-size: 12px;
+}
+.S12W300 {
+  font-weight: 300;
+  font-size: 12px;
+}
+.S12W400 {
+  font-weight: 400;
+  font-size: 12px;
+}
+.S12W500 {
+  font-weight: 500;
+  font-size: 12px;
+}
+.S12W600 {
+  font-weight: 600;
+  font-size: 12px;
+}
+.S12W700 {
+  font-weight: 700;
+  font-size: 12px;
+}
+.S12W800 {
+  font-weight: 800;
+  font-size: 12px;
+}
+.S12W900 {
+  font-weight: 900;
+  font-size: 12px;
+}
+
+.S14W100 {
+  font-weight: 100;
+  font-size: 14px;
+}
+.S14W200 {
+  font-weight: 200;
+  font-size: 14px;
+}
+.S14W300 {
+  font-weight: 300;
+  font-size: 14px;
+}
+.S14W400 {
+  font-weight: 400;
+  font-size: 14px;
+}
+.S14W500 {
+  font-weight: 500;
+  font-size: 14px;
+}
+.S14W600 {
+  font-weight: 600;
+  font-size: 14px;
+}
+.S14W700 {
+  font-weight: 700;
+  font-size: 14px;
+}
+.S14W800 {
+  font-weight: 800;
+  font-size: 14px;
+}
+.S14W900 {
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.S16W100 {
+  font-weight: 100;
+  font-size: 16px;
+}
+.S16W200 {
+  font-weight: 200;
+  font-size: 16px;
+}
+.S16W300 {
+  font-weight: 300;
+  font-size: 16px;
+}
+.S16W400 {
+  font-weight: 400;
+  font-size: 16px;
+}
+.S16W500 {
+  font-weight: 500;
+  font-size: 16px;
+}
+.S16W600 {
+  font-weight: 600;
+  font-size: 16px;
+}
+.S16W700 {
+  font-weight: 700;
+  font-size: 16px;
+}
+.S16W800 {
+  font-weight: 800;
+  font-size: 16px;
+}
+.S16W900 {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.s19W100 {
+  font-weight: 100;
+  font-size: 19.2px;
+}
+.s19W200 {
+  font-weight: 200;
+  font-size: 19.2px;
+}
+.s19W300 {
+  font-weight: 300;
+  font-size: 19.2px;
+}
+.s19W400 {
+  font-weight: 400;
+  font-size: 19.2px;
+}
+.s19W500 {
+  font-weight: 500;
+  font-size: 19.2px;
+}
+.s19W600 {
+  font-weight: 600;
+  font-size: 19.2px;
+}
+.s19W700 {
+  font-weight: 700;
+  font-size: 19.2px;
+}
+.s19W800 {
+  font-weight: 800;
+  font-size: 19.2px;
+}
+.S19W900 {
+  font-weight: 900;
+  font-size: 19.2px;
+}
+
+.S20W100 {
+  font-weight: 100;
+  font-size: 20px;
+}
+.S20W200 {
+  font-weight: 200;
+  font-size: 20px;
+}
+.S20W300 {
+  font-weight: 300;
+  font-size: 20px;
+}
+.S20W400 {
+  font-weight: 400;
+  font-size: 20px;
+}
+.S20W500 {
+  font-weight: 500;
+  font-size: 20px;
+}
+.S20W600 {
+  font-weight: 600;
+  font-size: 20px;
+}
+.S20W700 {
+  font-weight: 700;
+  font-size: 20px;
+}
+.S20W800 {
+  font-weight: 800;
+  font-size: 20px;
+}
+.S20W900 {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.S24W100 {
+  font-weight: 100;
+  font-size: 24px;
+}
+.S24W200 {
+  font-weight: 200;
+  font-size: 24px;
+}
+.S24W300 {
+  font-weight: 300;
+  font-size: 24px;
+}
+.S24W400 {
+  font-weight: 400;
+  font-size: 24px;
+}
+.S24W500 {
+  font-weight: 500;
+  font-size: 24px;
+}
+.S24W600 {
+  font-weight: 600;
+  font-size: 24px;
+}
+.S24W700 {
+  font-weight: 700;
+  font-size: 24px;
+}
+.S24W800 {
+  font-weight: 800;
+  font-size: 24px;
+}
+.S24W900 {
+  font-weight: 900;
+  font-size: 24px;
+}

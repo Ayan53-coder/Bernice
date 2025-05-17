@@ -1,0 +1,22 @@
+@import "../../mixins";
+@import "../../variables";
+
+.sectionOffers {
+  padding: 50px 0;
+  .container {
+    .row {
+      flex-direction: column;
+      .offerTitle {
+        font-size: 96px;
+        color: $DarkTeal;
+        margin: 80px 0 16px;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+      .offersBox {
+        @include space-between;
+        gap: 30px;
+      }
+    }
+  }
+}

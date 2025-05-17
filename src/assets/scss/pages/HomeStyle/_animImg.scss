@@ -1,0 +1,45 @@
+@import "../../variables";
+
+.animImg {
+  position: relative;
+  text-align: center;
+  margin: 48px 0;
+  padding: 20px 0;
+  overflow: hidden;
+  .animSlogan {
+    display: inline-block;
+    font-size: 80px;
+    font-weight: 800;
+    color: $DarkTeal;
+    text-transform: uppercase;
+    letter-spacing: -5px;
+    margin-bottom: 60px;
+    padding: 0 16px;
+    width: 60%;
+    line-height: 90px;
+  }
+  .loopBox {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    white-space: nowrap;
+
+    .img {
+      width: 320px;
+      border-radius: 500px 500px 80px 80px;
+    }
+
+    .large-img {
+      height: 400px;
+    }
+
+    .small-img {
+      height: 300px;
+    }
+
+    .svg-img {
+      width: 110px;
+      height: 110px;
+    }
+  }
+}

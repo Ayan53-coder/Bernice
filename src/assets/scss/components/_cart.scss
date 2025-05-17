@@ -1,0 +1,124 @@
+@import "../mixins";
+@import "../variables";
+
+.cart-modal {
+  height: 100%;
+  width: 560px;
+  position: fixed;
+  z-index: 20000;
+  background-color: white;
+  right: 0;
+  top: 0;
+  color: $DarkTeal;
+  .container {
+    .row {
+      flex-direction: column;
+      justify-content: flex-start;
+      .cartHeader {
+        @include space-between;
+        width: 100%;
+        border-bottom: 2px solid $DarkTeal;
+        padding-bottom: 24px;
+        margin-bottom: 32px;
+        .title {
+          font-size: 26px;
+          font-weight: 800;
+        }
+        svg {
+          font-size: 32px;
+          @include hover-pinkScale;
+          cursor: pointer;
+        }
+      }
+      .cartDisplay {
+        width: 100%;
+        @include space-between;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow-y: auto;
+
+        .emptyCart {
+          font-size: 19px;
+          color: $DarkTeal;
+        }
+        .cartList {
+          width: 100%;
+          .cartProduct {
+            @include space-between;
+            gap: 16px;
+            margin-bottom: 32px;
+            .cartimg {
+              width: 120px;
+              height: 120px;
+              .cartItemImage {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            .cartInfo {
+              display: flex;
+              flex-direction: column;
+              gap: 4px;
+              width: 70%;
+              .productName {
+                font-size: 19px;
+                text-transform: uppercase;
+                font-weight: 800;
+              }
+              .price {
+                font-size: 17.6px;
+              }
+              .itemSettings {
+                margin-top: 16px;
+                @include space-between;
+                .quantityBox {
+                  @include flex-center;
+                  color: $DarkTeal;
+                  .minus {
+                    @include quantityButton($Teal);
+                    width: 32px;
+                    height: 32px;
+                  }
+                  .quantity {
+                    width: 64px;
+                    pointer-events: none;
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 600;
+                  }
+                  .plus {
+                    @include quantityButton($Pink);
+                    width: 32px;
+                    height: 32px;
+                  }
+                }
+                .removeItem {
+                  background-color: transparent;
+                  border: none;
+                  font-size: 19px;
+                  font-weight: 500;
+                  margin-right: 10px;
+                  cursor: pointer;
+                  @include hover-pinkScale;
+                }
+              }
+            }
+          }
+        }
+        .mainButtonStyle {
+          margin-top: 16px;
+          @include flex-center;
+          font-weight: 600;
+          .separator {
+            width: 5px;
+            height: 5px;
+            margin: 0 16px;
+            border-radius: 50%;
+            background-color: $DarkTeal;
+          }
+        }
+      }
+    }
+  }
+}

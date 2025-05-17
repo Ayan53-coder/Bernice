@@ -1,0 +1,99 @@
+@import "../../variables";
+@import "../../mixins";
+
+.formsection {
+  padding-top: 100px;
+
+  .container {
+    padding: 50px 0;
+
+    .row {
+      @include space-between;
+
+      .formSide {
+        flex-basis: 60%;
+
+        .contactTitle {
+          font-size: 80px;
+          text-transform: uppercase;
+          font-weight: 800;
+          margin: 66px 0;
+        }
+
+        .form {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 32px;
+
+          .inputBox {
+            width: fit-content;
+            display: inline-block;
+            flex-basis: calc(50% - 2rem);
+
+            input {
+              border-radius: 10000px;
+              padding: 16px 19.2px 14.4px;
+              font-size: 16px;
+              border: 1px solid #ccc; /* Стандартный бордер */
+              outline: none;
+              width: 100%;
+              transition: border 0.3s ease;
+
+              &.error {
+                border: 2px solid red !important; /* Красный бордер при ошибке */
+              }
+            }
+
+            .errorText {
+              display: block;
+              color: red;
+              margin-top: 8px;
+              font-size: 14px;
+              margin-left: 15px;
+            }
+          }
+
+          .messageBox {
+            flex-basis: calc(100% - 2rem);
+            .errorText {
+              display: block;
+              color: red;
+              margin-top: 8px;
+              font-size: 14px;
+              margin-left: 15px;
+            }
+            textarea {
+              resize: none;
+              width: 100%;
+              border-radius: 24px;
+              height: 30vh;
+              border: 1px solid #ccc; /* Стандартный бордер */
+              outline: none;
+              padding: 16px 19.2px 14.4px;
+              font-size: 16px;
+              transition: border 0.3s ease;
+
+              &.error {
+                border: 2px solid red !important;
+              }
+            }
+          }
+
+          .mainButtonStyle {
+            background-color: $DarkTeal;
+            font-size: 19.2px;
+            padding: 16px 80px 12px;
+          }
+        }
+      }
+
+      .imgSide {
+        flex-basis: 35%;
+
+        img {
+          border-radius: 24px;
+        }
+      }
+    }
+  }
+}

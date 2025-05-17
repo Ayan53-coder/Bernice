@@ -1,0 +1,39 @@
+@import "../../variables";
+
+.shop {
+  padding-top: 57px;
+  .container {
+    margin-top: 96px;
+    .row {
+      flex-direction: column;
+
+      .shopInfo {
+        padding-right: 40%;
+        .shopTitle {
+          margin: 16px 0;
+          font-size: 80px;
+          text-transform: uppercase;
+          font-weight: 800;
+        }
+        .textBox {
+          .description {
+            margin: 17.6px 0;
+            line-height: 1.5;
+            font-size: 17.6px;
+          }
+        }
+      }
+      .collection {
+        display: flex;
+        flex-wrap: wrap;
+        .cardContainer {
+          margin: 32px 0;
+          width: 26%;
+          &:nth-child(3n-1) {
+            margin: 32px 11%;
+          }
+        }
+      }
+    }
+  }
+}

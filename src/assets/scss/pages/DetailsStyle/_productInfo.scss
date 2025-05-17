@@ -1,0 +1,36 @@
+@import "../../mixins";
+@import "../../variables";
+
+.productInfo {
+  padding: 50px 0;
+  .container {
+    margin-top: 100px;
+    .row {
+      justify-content: space-between;
+      gap: 6%;
+      .imageContainer {
+        display: flex;
+        flex-basis: 50%;
+        width: 85%;
+        aspect-ratio: 1;
+        position: relative;
+        .mainImg {
+          img {
+          }
+        }
+        .sideImgs {
+          display: flex;
+          flex-direction: column;
+          width: 15%;
+          margin-left: 16px;
+          display: block;
+          img {
+          }
+        }
+      }
+      .infoContainer {
+        flex-basis: 50%;
+      }
+    }
+  }
+}

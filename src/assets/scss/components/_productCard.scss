@@ -1,0 +1,126 @@
+@import "../variables";
+@import "../mixins";
+
+.productCard {
+  position: relative;
+  background-color: $OffWhite;
+  border: solid 4px $Teal;
+  padding: 24px;
+  width: 100%;
+  border-radius: 500px 500px 80px 80px;
+  height: 630px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+  .productImg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .base-img {
+      z-index: 1;
+    }
+
+    .hover-img {
+      z-index: 2;
+    }
+
+    .ingredients {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: none;
+      text-align: center;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      &.show {
+        display: block;
+      }
+      
+      .ingredientList {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+    
+      .ingItem {
+        background-color: $Pink;
+        position: absolute;
+        border-radius: 100px;
+        text-transform: uppercase;
+        color: $OffWhite;
+        padding: 6px 10px;
+        font-size: 14px;
+        transition: transform 0.4s ease; /* Добавляем анимацию для opacity */
+        opacity: 1; /* Начальная непрозрачность */
+        transform-origin: center center; /* Ориентируем трансформацию на центре */
+      }
+    }
+    
+  }
+
+  .nameBox {
+    .productName {
+      font-size: 24px;
+      font-weight: 900;
+      margin-top: 16px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .weight {
+      font-size: 14px;
+      color: $DarkTeal;
+    }
+  }
+
+  .productContent {
+    margin: 5px 0 16px;
+    @include space-between;
+    .price {
+      font-size: 19.2px;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+    .quantityBox {
+      @include flex-center;
+      color: $DarkTeal;
+      .minus {
+        @include quantityButton($Teal);
+      }
+      .quantity {
+        width: 80px;
+        pointer-events: none;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .plus {
+        @include quantityButton($Pink);
+      }
+    }
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

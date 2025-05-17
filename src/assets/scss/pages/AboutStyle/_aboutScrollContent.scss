@@ -1,0 +1,61 @@
+@import "../../variables";
+@import "../../mixins";
+
+.scrollContent {
+  .container {
+    padding: 50px 0;
+    .row {
+      flex-direction: column;
+      //   @include space-between;
+      position: relative;
+      .scrollLine {
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        background-color: #ccc;
+        border-radius: 10px;
+        left: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        .innerFill {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          background-color: $Teal;
+          border-radius: 10px;
+        }
+        .roundContainer {
+          width: 48px;
+          height: 48px;
+          background-color: $Teal;
+          padding: 8px;
+          @include flex-center;
+          border-radius: 50%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+      }
+      .scrollContainer {
+        .aboutTextBox {
+          .textHeader {
+          }
+          .textContent {
+            span {
+            }
+          }
+        }
+        .imgBox {
+          img {
+          }
+        }
+      }
+    }
+  }
+}

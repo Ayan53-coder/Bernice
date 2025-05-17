@@ -1,0 +1,112 @@
+@import "../variables";
+@import "../mixins";
+
+.footer {
+  background-color: $Teal;
+  color: $OffWhite;
+  .container {
+    padding: 64px 0 16px;
+    .row {
+      flex-direction: column;
+      @include flex-center;
+      gap: 16px;
+      .footerTop {
+        @include space-between;
+        align-items: flex-start;
+        width: 100%;
+        .contactInfo {
+          font-size: 17.6px;
+          .companyName {
+            font-size: 32px;
+            margin: 16px 0 32px;
+            text-transform: uppercase;
+            font-weight: 800;
+          }
+          .address {
+            margin: 17.6px 0;
+            font-weight: 600;
+          }
+          a {
+            color: $OffWhite;
+            display: block;
+            font-weight: 600;
+            transition: color 0.6s ease;
+            &:hover {
+              color: $Pink;
+            }
+          }
+          .delivery {
+            margin: 16px 0;
+            display: flex;
+            a img {
+              width: 50px;
+              height: 50px;
+              border-radius: 10px;
+              margin-right: 16px;
+            }
+          }
+        }
+        // .pages {
+        // .footerMenu {
+
+        // width: 100%;
+        .pageList {
+          .page {
+            margin-top: 16px;
+            @include hover-pinkScale;
+            a {
+              text-align: left;
+              font-weight: 600;
+              font-size: 24px;
+              color: $OffWhite;
+              &:hover {
+                color: $Pink;
+              }
+            }
+          }
+          // }
+          // }
+        }
+        .coupon {
+          .couponTitle {
+            margin: 16px 0 32px;
+            font-size: 32px;
+            text-transform: uppercase;
+            font-weight: 700;
+          }
+        }
+      }
+      .footerLogo {
+        .logo {
+          // font-size: 285px;
+          font-size: 18.6cqw;
+          font-weight: 900;
+          color: $OffWhite;
+          line-height: 310px;
+        }
+      }
+      .footerBottom {
+        @include space-between;
+        font-size: 17.6px;
+        width: 100%;
+        // .copyright {
+        //   p {
+        //   }
+        // }
+        .linkBox {
+          .link {
+            color: $OffWhite;
+            transition: color 0.6s ease;
+            &:hover {
+              color: $Pink;
+            }
+          }
+        }
+        // .madeBy {
+        //   p {
+        //   }
+        // }
+      }
+    }
+  }
+}
