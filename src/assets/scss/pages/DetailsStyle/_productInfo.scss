@@ -15,21 +15,121 @@
         aspect-ratio: 1;
         position: relative;
         .mainImg {
+          background-color: $Bisque;
+          border-radius: 3%;
+          @include flex-center;
+          width: 85%;
+          height: 85%;
           img {
+            transform: scale(0.7);
           }
         }
         .sideImgs {
           display: flex;
           flex-direction: column;
           width: 15%;
+          height: auto;
           margin-left: 16px;
-          display: block;
+
           img {
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid $DarkTeal;
+            background-color: $Bisque;
+            width: 70px;
+            margin-bottom: 16px;
+            border-radius: 15%;
           }
         }
       }
       .infoContainer {
         flex-basis: 50%;
+        .nameBox {
+          .productName {
+            font-size: 38px;
+            font-weight: 700;
+          }
+        }
+        .priceBox {
+          @include flex-center;
+          justify-content: start;
+          margin: 19px 0 24px;
+          font-size: 21px;
+          gap: 10px;
+          .divider {
+            background-color: $DarkTeal;
+            width: 5px;
+            height: 5px;
+            border-radius: 100px;
+          }
+        }
+        .ingredientList {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+          margin: 24px 0;
+          li {
+            @include ingredients;
+            position: inherit;
+          }
+        }
+        .details {
+          font-size: 17.6px;
+        }
+        .allergywarn {
+          @include flex-center;
+          justify-content: start;
+          gap: 8px;
+          margin: 16px 0;
+          color: $Teal;
+          font-size: 15px;
+          font-weight: 600;
+        }
+        .prodqty {
+          @include flex-center;
+          justify-content: start;
+          gap: 16px;
+          font-size: 19.2px;
+          font-weight: 700;
+          margin: 19px 0 35px;
+          .quantityBox {
+            @include flex-center;
+            color: $DarkTeal;
+            .minus {
+              @include quantityButton($Teal);
+            }
+            .quantity {
+              width: 80px;
+              pointer-events: none;
+              text-align: center;
+              font-size: 32px;
+              font-weight: 600;
+            }
+            .plus {
+              @include quantityButton($Pink);
+            }
+          }
+        }
+        .charecteristics {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          margin-top: 23px;
+          gap: 16px;
+          .svgContainer {
+            width: 120px;
+            text-align: center;
+            img {
+              width: 80%;
+              aspect-ratio: 1;
+            }
+            .descriptionText {
+              font-size: 12px;
+              text-transform: uppercase;
+              font-weight: 600;
+            }
+          }
+        }
       }
     }
   }

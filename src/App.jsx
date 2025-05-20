@@ -26,8 +26,8 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/search-results/:text' element={<SearchResultsPage />} /> {/* Страница результатов поиска */}
           <Route path='/details/:productId' element={<Details />} />
-          <Route path='/shopcakes' element={<ShopCakes />} />
-          <Route path='/shopcookies' element={<ShopCookies />} />
+          <Route path='/shopcake' element={<ShopCakes />} />
+          <Route path='/shopcookie' element={<ShopCookies />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>

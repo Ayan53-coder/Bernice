@@ -7,7 +7,7 @@
   background-color: $DarkTeal;
   width: 100%;
   position: relative;  // Обеспечим возможность расположения элементов внутри
-
+height: 420px;
   a {
     color: $OffWhite;
     flex-direction: column;
@@ -23,7 +23,7 @@
       padding-bottom: 35%;  // Чтобы сделать контейнер круглым, используем padding-bottom для сохранения пропорций
       overflow: hidden;  // Чтобы не выходить за рамки контейнера
       border-radius: 50%;  // Круглый контейнер
-      transition: transform 0.3s ease;  // Плавный переход
+      transition: transform 0.3s ease;
       &:hover {
         transform: scale(1.08);  // Увеличиваем контейнер при ховере
       }
@@ -48,6 +48,8 @@
       text-transform: uppercase;
       text-align: center;
       margin-top: 32px;
+      width: 70%;
+      line-height: 40px;
     }
   }
 }

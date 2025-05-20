@@ -4,7 +4,7 @@
 .sectionIntro {
   .container {
     .row {
-      padding: 50px 0;
+      padding: 50px 0 10px;
       color: $Teal;
       justify-content: space-between;
       gap: 32px;
@@ -12,15 +12,17 @@
 
       .headline {
         text-transform: uppercase;
-        font-size: 67.2px;
-        font-weight: 900;
-        width: calc(57% - 1rem);
+        font-size: 70px;
+        font-weight: 700;
+        width: calc(47% - 1rem);
         text-align: left;
       }
       .description {
         font-size: 25.6px;
+        padding-top: 15px;
         width: calc(40% - 1rem);
-        line-height:35px;
+        line-height: 35px;
+        font-family: "Inter";
       }
     }
   }

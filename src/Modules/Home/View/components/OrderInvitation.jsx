@@ -4,51 +4,53 @@ import { motion } from 'framer-motion';
 import FrostedCake from '../../../../assets/images/pictures/frostedcake2.png';
 
 const OrderInvitation = () => {
-  const [offset, setOffset] = useState(25);
+  const [offset, setOffset] = useState(40);
+  const sectionRef = useRef(null);
   const [showOrderBtn, setShowOrderBtn] = useState(false);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const delta = currentScrollY - lastScrollY;
-      lastScrollY = currentScrollY;
+      
+      const section = sectionRef.current;
+      if (!section) return;
 
-      setOffset((prev) => {
-        let next = prev - delta * 0.02;
-        if (next < 10) next = 10;
-        if (next > 25) next = 25;
-        return next;
-      });
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
 
-      if (!hasAnimated.current && delta > 0 && currentScrollY > 200) {
+  const animationStart = 600;
+const animationEnd = -900;
+
+      const rawProgress = (animationStart - rect.top) / (animationStart - animationEnd);
+      const progress = Math.min(Math.max(rawProgress, 0), 1);
+
+      const newOffset = 40 - progress * 40;
+      setOffset(newOffset);
+      // Анимация кнопки ORDER (однократно)
+      if (!hasAnimated.current && rect.top < windowHeight / 2) {
         setShowOrderBtn(true);
         hasAnimated.current = true;
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // инициализация при загрузке
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section className='orderInvitation'>
+    <section className='orderInvitation' ref={sectionRef}>
       <div className='orderWindow'>
         <svg className='arcText' viewBox='0 0 221.66 283.6'>
           <defs>
             <path
               id='text-arc'
-              d="
-              M -400 650 
-              V 250 
-              C -300 -10 -10 50 -30 50 
-              H 20 
-              C 40 50 80 100 140 150 
-              V 650 
-              H -400 
-              Z"
+              d="M 0.5 283.6 
+                 V 106 
+                 C 0.5 48.7 48.7 5 106 5 
+                 H 111.6 
+                 C 171.1 5 219.4 48.8 219.4 108.4
+                 V 270"
               fill='none'
             />
           </defs>
@@ -69,9 +71,9 @@ const OrderInvitation = () => {
           className='orderBtn'
           initial={{ scale: 0 }}
           animate={showOrderBtn ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 1, delay: 1.5, ease: 'easeOut' }}
+          transition={{ duration: 1, delay: 1, ease: 'easeOut' }}
         >
-          <Link to='/shopcakes'>ORDER</Link>
+          <Link to='/shopcake'>ORDER</Link>
           <div className='hover-bg' />
         </motion.div>
       </div>

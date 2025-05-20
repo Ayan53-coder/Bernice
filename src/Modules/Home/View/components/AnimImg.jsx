@@ -30,7 +30,7 @@ const AnimImg = () => {
           from={1000}
           to={2300}
           startY={250}
-          endY={-50}
+          endY={-30}
         />
       </div>
 

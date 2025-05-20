@@ -8,15 +8,14 @@
   overflow: hidden;
   .animSlogan {
     display: inline-block;
-    font-size: 80px;
-    font-weight: 800;
+    font-size: 100px;
+    font-weight: 700;
     color: $DarkTeal;
     text-transform: uppercase;
-    letter-spacing: -5px;
     margin-bottom: 60px;
     padding: 0 16px;
     width: 60%;
-    line-height: 90px;
+    line-height: 100px;
   }
   .loopBox {
     display: flex;

@@ -24,8 +24,8 @@ const Home = () => {
       <OrderInvitation/>
       <Coupon
               from = {6100}
-              to = {6400}
-              startY = {80}
+              to = {6800}
+              startY = {150}
               endY = {-20}
               />
     </div>

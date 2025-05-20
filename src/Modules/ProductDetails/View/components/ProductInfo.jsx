@@ -17,6 +17,7 @@ const ProductInfo = ({ product }) => {
               <img src={`${import.meta.env.VITE_API_URL}/${product.productImage}`} alt={product.name} />
             </div>
             <div className='sideImgs'>
+              <img src={`${import.meta.env.VITE_API_URL}/${product.productImage}`} alt={product.name} />
               <img src={`${import.meta.env.VITE_API_URL}/${product.hoverImage}`} alt="hover image" />
             </div>
           </div>
@@ -27,6 +28,7 @@ const ProductInfo = ({ product }) => {
             </div>
             <div className='priceBox'>
               <p className="weight">{product.quantity}</p>
+              <div className='divider'></div>
               <p className="price">${product.price}</p>
             </div>
             <ul className="ingredientList">
@@ -36,16 +38,17 @@ const ProductInfo = ({ product }) => {
             </ul>
             <p className='details'>{product.details}</p>
             <div className='allergywarn'>
-              <LuNut />
+              <LuNut size="24px" />
               <p className='warnText'>May contain nuts</p>
             </div>
-
+<div className='prodqty'>
+  Quantity:
             <div className="quantityBox">
               <div className="minus">-</div>
               <div className="quantity">1</div>
               <div className="plus">+</div>
             </div>
-
+</div>
             <ButtonStyle
               text="Add to Cart"
               textColor="#112229"

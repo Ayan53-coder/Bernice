@@ -8,14 +8,13 @@
   padding: 24px;
   width: 100%;
   border-radius: 500px 500px 80px 80px;
-  height: 630px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+  height: 660px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .productImg {
     position: relative;
     width: 100%;
-    height: auto;
     padding-top: 100%;
     overflow: hidden;
     object-fit: cover;
@@ -49,39 +48,30 @@ justify-content: space-between;
       &.show {
         display: block;
       }
-      
+
       .ingredientList {
         position: relative;
         width: 100%;
         height: 100%;
       }
-    
+
       .ingItem {
-        background-color: $Pink;
-        position: absolute;
-        border-radius: 100px;
-        text-transform: uppercase;
-        color: $OffWhite;
-        padding: 6px 10px;
-        font-size: 14px;
-        transition: transform 0.4s ease; /* Добавляем анимацию для opacity */
-        opacity: 1; /* Начальная непрозрачность */
-        transform-origin: center center; /* Ориентируем трансформацию на центре */
+        @include ingredients;
       }
     }
-    
   }
 
   .nameBox {
     .productName {
-      font-size: 24px;
-      font-weight: 900;
+      font-size: 26px;
+      font-weight: 700;
       margin-top: 16px;
       margin-bottom: 8px;
       text-transform: uppercase;
     }
     .weight {
       font-size: 14px;
+      font-family: "Inter";
       color: $DarkTeal;
     }
   }
@@ -93,12 +83,22 @@ justify-content: space-between;
       font-size: 19.2px;
       font-weight: 500;
       margin-top: 8px;
+      font-family: "Inter";
     }
     .quantityBox {
       @include flex-center;
       color: $DarkTeal;
       .minus {
         @include quantityButton($Teal);
+        &:hover {
+          background: lighten($Teal, 10%);
+          transform: scale(1.1);
+        }
+
+        &:active {
+          background: darken($Teal, 5%);
+          transform: scale(0.95);
+        }
       }
       .quantity {
         width: 80px;
@@ -109,6 +109,15 @@ justify-content: space-between;
       }
       .plus {
         @include quantityButton($Pink);
+        &:hover {
+          background: lighten($Pink, 3%);
+          transform: scale(1.1);
+        }
+
+        &:active {
+          background: darken($Pink, 5%);
+          transform: scale(0.95);
+        }
       }
     }
   }

@@ -13,12 +13,10 @@
       width: 100%;
       // height: 900px;
       // display: flex;
-           &:nth-child(2n-0) {
-            margin: 78px 0;
-          }
-    
+      &:nth-child(2n-0) {
+        margin: 78px 0;
+      }
     }
-    
   }
 
   // Настроим кастомные кнопки для навигации
@@ -35,7 +33,7 @@
     background-color: $DarkTeal;
     border: 2px solid $DarkTeal;
     @include flex-center;
-
+    transform: translateY(820px) !important;
     /* Убираем стандартные стрелки */
     &:after {
       display: none;
@@ -43,14 +41,14 @@
 
     /* Для левой стрелки (предыдущий слайд) */
     &.swiper-button-prev::before {
-      content: '\2190'; /* Символ стрелки влево */
+      content: "\2190"; /* Символ стрелки влево */
       font-size: 24px;
       color: $OffWhite; /* Белый цвет для стрелки */
     }
 
     /* Для правой стрелки (следующий слайд) */
     &.swiper-button-next::before {
-      content: '\2192'; /* Символ стрелки вправо */
+      content: "\2192"; /* Символ стрелки вправо */
       font-size: 24px;
       color: $OffWhite; /* Белый цвет для стрелки */
     }
@@ -66,7 +64,7 @@
   }
 
   .swiper-button-next {
-    left: calc(48px + 16px); 
+    left: calc(48px + 16px);
   }
 
   /* Убираем пагинацию, если она не нужна */
@@ -74,3 +72,26 @@
     display: none;
   }
 }
+// .mySwiper {
+//   position: relative;
+//   padding-top: 40px;
+// }
+
+// .swiper-button-prev,
+// .swiper-button-next {
+//   top: 60px !important;
+//   transform: translateY(0%) !important;
+//   background-color: #000;
+//   border-radius: 50%;
+//   width: 40px;
+//   height: 40px;
+//   z-index: 10;
+// }
+
+// .swiper-button-prev {
+//   left: 0;
+// }
+
+// .swiper-button-next {
+//   right: 0;
+// }

@@ -55,7 +55,7 @@ const ShopSection = ({
 
           <div className="collection">
             {loading ? (
-              <p>Загрузка продуктов...</p>
+              <p>Loading products...</p>
             ) : products.length > 0 ? (
               products.map((product) => (
                 <div className="cardContainer" key={product._id}>
@@ -67,7 +67,7 @@ const ShopSection = ({
                 </div>
               ))
             ) : (
-              <p>Нет классических продуктов в категории "{category}".</p>
+              <p>No product with category "{category}".</p>
             )}
           </div>
         </div>

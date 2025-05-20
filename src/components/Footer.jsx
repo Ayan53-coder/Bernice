@@ -30,10 +30,10 @@ const Footer = () => {
   {/* <div className="footerMenu"> */}
     <ul className='pageList'>
       <li className='page'>
-        <Link to="/shopcookies">COOKIES</Link>
+        <Link to="/shopcookie">COOKIES</Link>
       </li>
       <li className='page'>
-      <Link to="/shopcakes">CAKES</Link>
+      <Link to="/shopcake">CAKES</Link>
       </li>
     </ul>
   {/* </div> */}

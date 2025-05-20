@@ -1,18 +1,19 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import OffersImage from '../assets/images/pictures/classiccakes.png'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const OffersCard = () => {
+const OffersCard = ({ image, title, link, backgroundColor }) => {
+  const isSpecial = title.toLowerCase().includes('special');
+
   return (
-    <div className='offersCard'>
-        <Link to="/shopcakes">
+    <div className='offersCard' style={{ backgroundColor }}>
+      <Link to={`${link}${isSpecial ? '#special' : ''}`}>
         <div className='imgcontainer'>
-            <img src={OffersImage} alt=''/>
+          <img src={image} alt={title} />
         </div>
-        <h3 className='cardTitle'>Classic Cakes</h3>
-        </Link>
+        <h3 className='cardTitle'>{title}</h3>
+      </Link>
     </div>
-  )
-}
+  );
+};
 
-export default OffersCard
+export default OffersCard;

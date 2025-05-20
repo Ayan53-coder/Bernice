@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 import { useUI } from '../context/UIContext';
 import axios from 'axios';
 
-const ShopSpecial = ({ text2, textColor, parentCategory }) => {
+const ShopSpecial = ({ id,text2, textColor, parentCategory }) => {
   const { addToCart } = useUI();
   const [products, setProducts] = useState([]);
 
@@ -27,16 +27,16 @@ const ShopSpecial = ({ text2, textColor, parentCategory }) => {
   }, [parentCategory]);
 
   return (
-    <section className='shop'>
+    <section  className='shop'>
       <div className="container">
         <div className="row">
-          <div className='shopInfo'>
-            <h2 className='shopTitle' style={{ color: textColor }}>
+          <div id={id}  className='shopInfo'>
+            <h2  className='shopTitle' style={{ color: textColor }}>
               <ScrollYMotionText
                 text={text2}
-                from={1500}
-                to={2300}
-                startY={100}
+                from={2000}
+                to={2550}
+                startY={0}
                 endY={-80}
               />
             </h2>

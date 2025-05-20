@@ -63,8 +63,8 @@ const Header = () => {
               <div className='mobileLogo'>
                 <img src={WhiteLogo} alt="logo" />
               </div>
-              <li className='navItem s19W600'><Link to='/shopcookies' className={isBlack ? "black" : ""}>COOKIES</Link></li>
-              <li className='navItem s19W600'><Link to='/shopcakes' className={isBlack ? "black" : ""}>CAKES</Link></li>
+              <li className='navItem s19W600'><Link to='/shopcookie' className={isBlack ? "black" : ""}>COOKIES</Link></li>
+              <li className='navItem s19W600'><Link to='/shopcake' className={isBlack ? "black" : ""}>CAKES</Link></li>
               <li className='navItem s19W600'><Link to='/about' className={isBlack ? "black" : ""}>ABOUT</Link></li>
               <li className='navItem s19W600'><Link to='/contact' className={isBlack ? "black" : ""}>CONTACT</Link></li>
               <li className="navItem">
@@ -78,8 +78,11 @@ const Header = () => {
               <button className="bagBtn" onClick={toggleCart}>
                 <SlBag className={`bagIcon ${isBlack ? "black" : ""}`} />
                 <span className={`cartCount ${isBlack ? "black" : ""}`}>
-                  {cart && cart.length > 0 ? `${cart.length}` : '0'}
-                </span>
+  {cart && cart.length > 0
+    ? cart.reduce((total, item) => total + item.quantity, 0)
+    : '0'}
+</span>
+
               </button>
               <IoSearchOutline className={`searchIcon ${isBlack ? "black" : ""}`} onClick={handleSearchClick} />
               <FaBars className={`menu ${isBlack ? "black" : ""}`} onClick={() => setMenuIsOpen(!menuIsOpen)} />

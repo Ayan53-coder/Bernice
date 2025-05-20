@@ -55,9 +55,9 @@ const BestSellers = () => {
           src={CakeSvg}
           alt="Cake"
           from={0}
-          to={1000}
+          to={1200}
           startY={100}
-          endY={-150}
+          endY={-180}
         />
       </div>
 

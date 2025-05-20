@@ -1,13 +1,13 @@
-// MySwiper.js
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid, Navigation } from 'swiper/modules';
 import 'swiper/css/grid';
+import 'swiper/css';            
+import 'swiper/css/navigation'; 
 import axios from 'axios';
 import ProductCard from './ProductCard';
 import { useUI } from '../context/UIContext';
-import Loading from '../assets/scss/animations/Loading.json'
-import Lottie from 'lottie-react';
+
 
 const MySwiper = ({ category }) => {  // Пропс category для выбора категории
   const { addToCart } = useUI();
@@ -34,7 +34,7 @@ const MySwiper = ({ category }) => {  // Пропс category для выбора
   }, [category]); // Делаем запрос и фильтрацию при изменении категории
 
   if (loading) return <div>
-     <Lottie animationData={Loading} loop={true} />
+     loading...
   </div>;
   if (error) return <div>{error}</div>;
 

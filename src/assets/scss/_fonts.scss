@@ -1,19 +1,21 @@
 @font-face {
-  font-family: 'Apfel Grotezk';
-  src: url('./assets/fonts/ApfelGrotezk-Regular.woff2') format('woff2'),
-       url('./assets/fonts/ApfelGrotezk-Regular.woff') format('woff'),
-       url('./assets/fonts/ApfelGrotezk-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-family: "Apfel Grotezk";
+  src: url("../fonts/ApfelGrotezk/ApfelGrotezk-Regular.woff2") format("woff2"),
+    url("../fonts/ApfelGrotezk/ApfelGrotezk-Regular.woff") format("woff"),
+    url("../fonts/ApfelGrotezk/ApfelGrotezk-Regular.ttf") format("truetype");
+  font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: 'Apfel Grotezk';
-  src: url('./assets/fonts/ApfelGrotezk-Fett.woff2') format('woff2'),
-       url('./assets/fonts/ApfelGrotezk-Fett.woff') format('woff'),
-       url('./assets/fonts/ApfelGrotezk-Fett.ttf') format('truetype');
-  font-weight: bold;
+  font-family: "Apfel Grotezk";
+  src: url("../fonts/ApfelGrotezk/ApfelGrotezk-Fett.woff2") format("woff2"),
+    url("../fonts/ApfelGrotezk/ApfelGrotezk-Fett.woff") format("woff"),
+    url("../fonts/ApfelGrotezk/ApfelGrotezk-Fett.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 .S12W100 {

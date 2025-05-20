@@ -25,10 +25,10 @@ const [activeCategory, setActiveCategory] = useState('cookie');
           </div>
 
           <Swiper category={activeCategory} />
-          <div style={{ textAlign: 'right' }}>
+          <div  style={{ textAlign: 'right' }}>
             <Link to={`/shop${activeCategory.toLowerCase()}`} className='viewall'>VIEW ALL</Link>
           </div>
-        </div>
+          </div>
       </div>
     </section>
   );
