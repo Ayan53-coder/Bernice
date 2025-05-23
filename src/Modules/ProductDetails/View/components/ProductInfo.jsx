@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ButtonStyle from '../../../../components/ButtonStyle';
 import { LuNut } from "react-icons/lu";
 import Cow from '../../../../assets/images/pictures/cowblack.svg';
@@ -9,7 +9,14 @@ import { useUI } from '../../../../context/UIContext'; // если исполь�
 const ProductInfo = ({ product }) => {
   const { addToCart } = useUI();
   const [quantity, setQuantity] = useState(1);
-  const [selectedImage, setSelectedImage] = useState(`${import.meta.env.VITE_API_URL}/${product.productImage}`);
+  const [selectedImage, setSelectedImage] = useState('');
+
+  useEffect(() => {
+    if (product) {
+      setSelectedImage(`${import.meta.env.VITE_API_URL}/${product.productImage}`);
+      setQuantity(1); // можно сбрасывать количество, если нужно
+    }
+  }, [product]);
 
   if (!product) return <div>No product data</div>;
 
@@ -115,4 +122,4 @@ const ProductInfo = ({ product }) => {
 };
 
 
-export default ProductInfo;
+export default ProductInfo;   

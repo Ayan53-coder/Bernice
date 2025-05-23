@@ -86,7 +86,7 @@ const AboutScrollContent = () => {
           from={500}
           to={2000}
           startY={100}
-          endY={-100}
+          endY={-140}
           style={{ display: 'inline-block' }}
         >
           <img src={section.image} alt={section.alt} />
@@ -98,7 +98,7 @@ const AboutScrollContent = () => {
           from={500}
           to={2000}
           startY={70}
-          endY={-100}
+          endY={-140}
           style={{ display: 'inline-block' }}
         >
           <h3 className="textHeader">{section.title}</h3>

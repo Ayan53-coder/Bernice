@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import ContactInfo from "./ContactInfo";
-import PaymentInfo from "./PaymentInfo";
-import CartSummary from "./CartSummary";
-import RememberMe from "./RememberMe";
+import ContactInfo from "../../../components/ContactInfo";
+import PaymentInfo from "../../../components/PaymentInfo";
+import CartSummary from "../../../components/CartSummary";
+import RememberMe from "../../../components/RememberMe";
 import Lottie from "lottie-react";
-import TealBubbles from "../assets/scss/animations/TealBubles.json";
-import { useUI } from "../context/UIContext";
+import TealBubbles from "../../../assets/scss/animations/TealBubles.json";
+import { useUI } from "../../../context/UIContext";
 import { toast } from "react-hot-toast"; 
 
 const CheckoutPage = () => {

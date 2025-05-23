@@ -94,6 +94,8 @@
           }
           .searchIcon,
           .bagIcon {
+            cursor: pointer;
+
             color: $OffWhite;
             font-size: 24px;
             @include hover-pinkScale;

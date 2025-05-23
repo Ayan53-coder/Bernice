@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useUI } from "../context/UIContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom"; 
 
 const CartSummary = () => {
   const { cart } = useUI();
   const [discountCode, setDiscountCode] = useState("");
   const [discountApplied, setDiscountApplied] = useState(false);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const storedCode = sessionStorage.getItem("promo_code");
@@ -49,10 +51,17 @@ const CartSummary = () => {
         <>
           {cart.map((item) => (
             <div className="item" key={item.product._id}>
-              <img
-                src={`${import.meta.env.VITE_API_URL}/${item.product.productImage}`}
-                alt={item.product.name}
-              />
+             <div
+                className="cartImageWrapper"
+                onClick={() => navigate(`/details/${item.product._id}`)}
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  src={`${import.meta.env.VITE_API_URL}/${item.product.productImage}`}
+                  alt={item.product.name}
+                  className="cartItemImage"
+                />
+              </div>
               <div className="itemInfo">
                 <p>{item.product.name}</p>
                 <span>${item.product.price.toFixed(2)} × {item.quantity}</span>

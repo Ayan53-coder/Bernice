@@ -48,13 +48,21 @@ const Cart = () => {
                 <ul className='cartList'>
                   {cart.map((item) => (
                     <li className="cartProduct" key={item.product._id}>
-                      <div className='cartimg'>
-                        <img
-                          src={`${import.meta.env.VITE_API_URL}/${item.product.productImage}`}
-                          alt={item.product.name}
-                          className="cartItemImage"
-                        />
-                      </div>
+                  <div
+  className='cartimg'
+  onClick={() => {
+    closeCart(); // закрываем корзину
+    navigate(`/details/${item.product._id}`); // переходим на страницу details
+  }}
+>
+  <img
+    src={`${import.meta.env.VITE_API_URL}/${item.product.productImage}`}
+    alt={item.product.name}
+    className="cartItemImage"
+  />
+</div>
+
+
                       <div className='cartInfo'>
                         <h3 className='productName'>{item.product.name}</h3>
                         <span className='price'>${item.product.price}</span>
