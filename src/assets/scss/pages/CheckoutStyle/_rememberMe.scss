@@ -1,0 +1,11 @@
+.rememberMe {
+  font-size: 14px;
+  .checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    .checkbox{
+      cursor: pointer;
+    }
+  }
+}

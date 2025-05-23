@@ -22,6 +22,8 @@
           height: 85%;
           img {
             transform: scale(0.7);
+            transition: transform 0.3s ease;
+            border-radius: 3%;
           }
         }
         .sideImgs {
@@ -34,11 +36,23 @@
           img {
             cursor: pointer;
             padding: 10px;
-            border: 1px solid $DarkTeal;
+            border: 1px solid transparent;
             background-color: $Bisque;
             width: 70px;
             margin-bottom: 16px;
             border-radius: 15%;
+            transition: all 0.3s ease;
+
+            &:hover {
+              transform: scale(1.05);
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            &.active {
+              border: 1px solid $DarkTeal;
+              transform: scale(1.05);
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
           }
         }
       }
@@ -130,6 +144,19 @@
             }
           }
         }
+      }
+    }
+  }
+  &.isCake {
+    .mainImg {
+      background-color: transparent !important;
+      img {
+        transform: scale(1) !important;
+      }
+    }
+    .sideImgs {
+      img {
+        background-color: transparent !important; // если нужно убрать фон у самих изображений (если у них есть)
       }
     }
   }

@@ -12,12 +12,17 @@ import Search from './components/Search';
 import SearchResultsPage from './Modules/SearchResults/View/SearchResults'; // Обновлено на компонент с результатами
 import Details from './Modules/ProductDetails/View/Details';
 import ScrollToTop from './components/ScrollToTop'; // Импортируем ScrollToTop
+import CheckoutPage from './components/CheckoutPage';
+import { LoadScript } from "@react-google-maps/api";
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const { isSearchOpen, closeSearch } = useUI();
 
   return (
+   <LoadScript googleMapsApiKey="AIzaSyAlmKISC4_rcw9t3S3SWUyIEw1z8IwdLGI" libraries={["places"]}>
     <div>
+       <Toaster />
       <Header />
       {isSearchOpen && <Search onClose={closeSearch} />} {/* Отображение панели поиска */}
       <ScrollToTop /> {/* СcrollToTop для прокрутки страницы в начало при переходе */}
@@ -30,10 +35,12 @@ const App = () => {
           <Route path='/shopcookie' element={<ShopCookies />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/checkout' element={<CheckoutPage/>}/>
         </Routes>
       </main>
       <Footer />
     </div>
+</LoadScript>
   );
 };
 

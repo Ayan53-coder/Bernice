@@ -9,9 +9,9 @@ const About = () => {
       <AboutIntro/>
 <AboutScrollContent/>
         <Coupon
-        from = {400}
-        to = {1000}
-        startY = {150}
+        from = {2000}
+        to = {2600}
+        startY = {120}
         endY = {-20}
         />
     </div>

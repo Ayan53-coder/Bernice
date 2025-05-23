@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import ButtonStyle from './ButtonStyle';
+import { useUI } from '../context/UIContext';
 
 const SendEmail = () => {
   const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(!!sessionStorage.getItem('newsletter_id'));
-  const [promoCode, setPromoCode] = useState('');
+const { isSubscribed, setIsSubscribed, promoCode, setPromoCode } = useUI();
+
   const [error, setError] = useState('');
 
-  // Загружаем промокод, если подписка уже была
-  useEffect(() => {
-    const storedCode = sessionStorage.getItem('promo_code');
-    if (storedCode) {
-      setPromoCode(storedCode);
-    }
-  }, []);
+  // // Загружаем промокод, если подписка уже была
+  // useEffect(() => {
+  //   const storedCode = sessionStorage.getItem('promo_code');
+  //   if (storedCode) {
+  //     setPromoCode(storedCode);
+  //   }
+  // }, []);
 
   const validateEmail = (email) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -27,30 +28,31 @@ const SendEmail = () => {
     return result;
   };
 
-  const handleSubscribe = () => {
-    if (!email) {
-      setError('Email is required.');
-      return;
-    }
+const handleSubscribe = () => {
+  if (!email) {
+    setError('Email is required.');
+    return;
+  }
 
-    if (!validateEmail(email)) {
-      setError('Invalid email format.');
-      return;
-    }
+  if (!validateEmail(email)) {
+    setError('Invalid email format.');
+    return;
+  }
 
-    setError('');
+  setError('');
 
-    const newsletterId = `nl_${Math.random().toString(36).substr(2, 9)}`;
-    const newPromoCode = generatePromoCode();
+  const newsletterId = `nl_${Math.random().toString(36).substr(2, 9)}`;
+  const newPromoCode = generatePromoCode();
 
-    sessionStorage.setItem('newsletter_id', newsletterId);
-    sessionStorage.setItem('promo_code', newPromoCode);
+  sessionStorage.setItem('newsletter_id', newsletterId);
+  sessionStorage.setItem('promo_code', newPromoCode);
 
-    setPromoCode(newPromoCode);
-    setSubscribed(true);
-  };
+  setPromoCode(newPromoCode);       // 🟢 глобальный
+  setIsSubscribed(true);            // 🟢 глобальный
+};
 
-  if (subscribed) {
+
+  if (isSubscribed) {
     return (
       <div className="subscribedMessage">
         <p className='subscribed'>You are now subscribed!</p>

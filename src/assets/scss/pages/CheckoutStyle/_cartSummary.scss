@@ -1,0 +1,88 @@
+@import "../../variables";
+@import "../../mixins";
+
+.cartSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .item {
+    @include space-between;
+    gap: 12px;
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .itemInfo {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      p {
+        font-weight: 500;
+        margin: 0;
+      }
+
+      span {
+        font-size: 14px;
+        color: #666;
+      }
+    }
+
+    .itemTotal {
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
+
+  .discountSection {
+    display: flex;
+    gap: 8px;
+
+    input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color:$Pink;
+      border: none;
+      border-radius: 6px;
+      color: $DarkTeal;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover:enabled {
+        background-color: #ffcdf2;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+    }
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    padding-top: 12px;
+  }
+}

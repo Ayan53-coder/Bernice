@@ -1,24 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ButtonStyle from '../../../../components/ButtonStyle';
 import { LuNut } from "react-icons/lu";
 import Cow from '../../../../assets/images/pictures/cowblack.svg';
 import Spatula from '../../../../assets/images/pictures/spatula.svg';
 import Cookie from '../../../../assets/images/pictures/cookieblack.svg';
+import { useUI } from '../../../../context/UIContext'; // если используешь контекст
 
 const ProductInfo = ({ product }) => {
+  const { addToCart } = useUI();
+  const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState(`${import.meta.env.VITE_API_URL}/${product.productImage}`);
+
   if (!product) return <div>No product data</div>;
 
+  const handleIncrease = () => setQuantity(prev => prev + 1);
+  const handleDecrease = () => {
+    if (quantity > 1) setQuantity(prev => prev - 1);
+  };
+
   return (
-    <section className='productInfo'>
+    // Вот тут добавляем условный класс isCake
+    <section className={`productInfo ${product.type === 'cake' ? 'isCake' : ''}`}>
       <div className="container">
         <div className="row">
           <div className='imageContainer'>
             <div className='mainImg'>
-              <img src={`${import.meta.env.VITE_API_URL}/${product.productImage}`} alt={product.name} />
+              <img src={selectedImage} alt="Selected product" loading="lazy" />
             </div>
+
             <div className='sideImgs'>
-              <img src={`${import.meta.env.VITE_API_URL}/${product.productImage}`} alt={product.name} />
-              <img src={`${import.meta.env.VITE_API_URL}/${product.hoverImage}`} alt="hover image" />
+              {[product.productImage, product.hoverImage]
+                .filter(Boolean)
+                .map((img, index) => {
+                  const fullImgPath = `${import.meta.env.VITE_API_URL}/${img}`;
+                  const isActive = selectedImage === fullImgPath;
+
+                  return (
+                    <img
+                      key={index}
+                      src={fullImgPath}
+                      alt={`Side ${index}`}
+                      className={isActive ? 'active' : ''}
+                      onClick={() => setSelectedImage(fullImgPath)}
+                      loading="lazy"
+                    />
+                  );
+                })}
             </div>
           </div>
 
@@ -26,29 +53,35 @@ const ProductInfo = ({ product }) => {
             <div className="nameBox">
               <h3 className="productName">{product.name}</h3>
             </div>
+
             <div className='priceBox'>
               <p className="weight">{product.quantity}</p>
-              <div className='divider'></div>
+              {product.type !== 'cake' && <div className='divider'></div>}
               <p className="price">${product.price}</p>
             </div>
+
             <ul className="ingredientList">
-              {product.ingredients && product.ingredients.map((ingredient, index) => (
+              {product.ingredients?.map((ingredient, index) => (
                 <li key={index}>{ingredient}</li>
               ))}
             </ul>
+
             <p className='details'>{product.details}</p>
+
             <div className='allergywarn'>
               <LuNut size="24px" />
               <p className='warnText'>May contain nuts</p>
             </div>
-<div className='prodqty'>
-  Quantity:
-            <div className="quantityBox">
-              <div className="minus">-</div>
-              <div className="quantity">1</div>
-              <div className="plus">+</div>
+
+            <div className='prodqty'>
+              Quantity:
+              <div className="quantityBox">
+                <div className="minus" onClick={handleDecrease}>-</div>
+                <div className="quantity">{quantity}</div>
+                <div className="plus" onClick={handleIncrease}>+</div>
+              </div>
             </div>
-</div>
+
             <ButtonStyle
               text="Add to Cart"
               textColor="#112229"
@@ -57,20 +90,20 @@ const ProductInfo = ({ product }) => {
               hoverColor="#f8f8f2"
               fontSize="24px"
               className="mainButtonStyle"
-              onClick={() => {}}
+              onClick={() => addToCart({ product, quantity })}
             />
 
             <div className='charecteristics'>
               <div className='svgContainer'>
-                <img src={Cow} alt="cow" />
+                <img src={Cow} alt="cow" loading="lazy" />
                 <p className='descriptionText'>Made with real butter</p>
               </div>
               <div className='svgContainer'>
-                <img src={Spatula} alt="spatula" />
+                <img src={Spatula} alt="spatula" loading="lazy" />
                 <p className='descriptionText'>Gooey inside</p>
               </div>
               <div className='svgContainer'>
-                <img src={Cookie} alt="cookie" />
+                <img src={Cookie} alt="cookie" loading="lazy" />
                 <p className='descriptionText'>Soft baked</p>
               </div>
             </div>
@@ -80,5 +113,6 @@ const ProductInfo = ({ product }) => {
     </section>
   );
 };
+
 
 export default ProductInfo;

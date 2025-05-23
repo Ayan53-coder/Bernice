@@ -1,0 +1,41 @@
+.billingAddress {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h4 {
+    font-size: 20px;
+  }
+
+  .nameFields,
+  .cityFields {
+    display: flex;
+    gap: 10px;
+  }
+
+  input[type="text"],
+  input[type="date"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex: 1;
+    color: #6e6d6d;
+    transition: border 0.3s;
+
+    &.invalid {
+      border-color: red;
+    }
+  }
+
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+  }
+}

@@ -4,7 +4,8 @@ import ProductCard from '../../../components/ProductCard'; // Импортиру
 import Lottie from 'lottie-react';
 import NotFound from '../../../assets/scss/animations/notfound.json'; // Анимация "Не найдено"
 import { useParams } from 'react-router-dom';
-// import { useParams } from 'react-router-dom';
+import { useUI } from '../../../context/UIContext'; // если используешь контекст
+import ScrollYMotionText from '../../../assets/scss/animations/ScrollYMotionText'
 
 const SearchResultsPage = () => {
   const {text}=useParams()
@@ -12,6 +13,7 @@ const SearchResultsPage = () => {
   const [results, setResults] = useState([]); // Результаты поиска
   const [loading, setLoading] = useState(true); // Статус загрузки
   const [error, setError] = useState(null); // Ошибки при запросах
+const { addToCart } = useUI();
 
   useEffect(() => {
     const fetchSearchResults = async () => {
@@ -25,7 +27,7 @@ const SearchResultsPage = () => {
         setResults(filteredProducts); // Устанавливаем отфильтрованные результаты
         setLoading(false); // Завершаем загрузку
       } catch (err) {
-        setError('Ошибка при получении результатов поиска');
+        setError('Error');
         setLoading(false);
       }
     };
@@ -35,7 +37,7 @@ const SearchResultsPage = () => {
 
   // Если идет загрузка
   if (loading) {
-    return <p>Загрузка...</p>;
+    return <p>Loading...</p>;
   }
 
   // Если произошла ошибка
@@ -53,19 +55,35 @@ const SearchResultsPage = () => {
   }
 
   return (
-    <div>
-      <h2>Результаты поиска</h2>
+    <section className='searchResults'>
+      <div className="container">
+        <div className="row">
+
+
+   <div className='resultsTitle'>
+  <ScrollYMotionText
+    text="Search results"
+    from={0}
+    to={800}
+    startY={20}
+    endY={-100}
+  />
+</div>
+
       <div className="productList">
         {results.map((product) => (
-          <ProductCard
-            key={product._id}
-            productId={product._id}
-            customStyle={{ border: 'none', borderRadius: '0px' }}
-            onAddToCart={({ product, quantity }) => addToCart({ product, quantity })}  // Логика добавления в корзину
-          />
+ <ProductCard
+  key={product._id}
+  productId={product._id}
+  customStyle={{ border: 'none', borderRadius: '0px' }}
+  onAddToCart={({ product, quantity }) => addToCart({ product, quantity })}
+/>
+
         ))}
       </div>
-    </div>
+              </div>
+      </div>
+    </section>
   );
 };
 

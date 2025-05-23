@@ -16,8 +16,8 @@ import Journal from '../assets/images/icons/journal.avif';
 import Tastet from '../assets/images/icons/tastet.avif';
 import Eater from '../assets/images/icons/eater.avif';
 // ABOUT CONTENT
-// import Family from '../assets/images/pictures/family.png';
-
+import Family from '../assets/images/pictures/family.png';
+import Counter from '../assets/images/pictures/counter.png'
 
 export const fluidImages = [
   { src: Barista, alt: 'barista', type: 'large' },
@@ -72,7 +72,7 @@ export const aboutSections = [
 
       It was only later, in his teenage years, that he began to explore the art of baking. Jami believes baking was a tool and outlet to express his true self in an artistic way. Later in his early twenties, he decided to pursue a career in culinary arts and pastry arts in New York City. Having his culinary education, and his innate talent, has allowed him to work in various restaurants both in Manhattan and Montréal.
     `,
-    image: '', // можно заменить на путь: '/assets/images/family.jpg'
+    image: Family, // можно заменить на путь: '/assets/images/family.jpg'
     alt: 'family picture',
     reverse: false,
   },
@@ -85,7 +85,7 @@ export const aboutSections = [
 
       The early 2020 opening was postponed due to construction delays, and then postponed yet again due to a little pandemic… nevertheless, the doors were opened in August of that year.
     `,
-    image: '',
+    image: Cutting,
     alt: 'cake',
     reverse: true,
   },
@@ -98,7 +98,7 @@ export const aboutSections = [
 
       It is in honour of her beautiful spirit, Bernice bakery bears her name. We hope that every person who walks through these doors leaves a bit sweeter and with a bit more love.
     `,
-    image: '',
+    image: Counter,
     alt: 'interior',
     reverse: false,
   },

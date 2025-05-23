@@ -1,6 +1,18 @@
 @import "../mixins";
 @import "../variables";
 
+.cart-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.45); // ← затемнение
+  z-index: 19999; // меньше, чем .cart-modal
+  display: flex;
+  justify-content: flex-end;
+}
+
 .cart-modal {
   height: 100%;
   width: 560px;
@@ -117,7 +129,7 @@
             border-radius: 50%;
             background-color: $DarkTeal;
           }
-        }
+      }
       }
     }
   }

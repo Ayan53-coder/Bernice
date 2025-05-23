@@ -4,37 +4,48 @@
 .scrollContent {
   .container {
     padding: 50px 0;
+
     .row {
       flex-direction: column;
-      //   @include space-between;
       position: relative;
+
       .scrollLine {
         width: 5px;
         height: 100%;
         position: absolute;
+        left: 50%;
+        // transform: translateX(-50%);
         background-color: #ccc;
         border-radius: 10px;
-        left: 50%;
         display: flex;
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
+        z-index: 1;
+        transition: background-color 0.5s ease;
+
         .innerFill {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
-          height: 50%;
+          height: 0%;
           background-color: $Teal;
           border-radius: 10px;
+          transition: height 2s ease-out;
+          z-index: 0;
         }
+
         .roundContainer {
-          width: 48px;
-          height: 48px;
-          background-color: $Teal;
+          width: 68px;
+          height: 68px;
           padding: 8px;
-          @include flex-center;
+          background-color: #ccc;
           border-radius: 50%;
+          @include flex-center;
+          transition: transform 0.6s ease-out, background-color 1s ease;
+          z-index: 1;
+
           img {
             width: 100%;
             height: 100%;
@@ -42,25 +53,69 @@
           }
         }
       }
+
       .scrollContainer {
+        @include space-between;
+        margin-bottom: 40px;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+
+        &.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        &.reverse {
+          flex-direction: row-reverse;
+        }
+
         .aboutTextBox {
           width: 45%;
+
           .textHeader {
             text-transform: uppercase;
             font-weight: 700;
             font-size: 26px;
-            // margin-bottom: 22px;
-            line-height: normal;
           }
+
           .textContent {
             font-size: 17.6px;
+            opacity: 0;
+            transition: opacity 0.8s ease 1s;
+
+            &.visible {
+              opacity: 1;
+            }
+
             span {
-            font-family: 'Inter';
+              font-family: "Inter";
             }
           }
         }
+
         .imgBox {
+          flex-basis: 45%;
+          aspect-ratio: 4 / 3;
+          // overflow: hidden;
+          border-radius: 24px;
+          transform: scale(0.8);
+          opacity: 0;
+          transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+
+          &.visible {
+            transform: scale(1);
+            opacity: 1;
+          }
+
           img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+            width: 600px;
+            height: 500px;
+            // transform: translateY(-25%);
+            // min-height: 600px;
           }
         }
       }

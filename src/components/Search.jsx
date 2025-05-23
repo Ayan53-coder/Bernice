@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useUI } from '../context/UIContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoCloseOutline } from "react-icons/io5";
@@ -13,6 +13,24 @@ const Search = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+const searchRef = useRef(null); // ← Ссылка на всю searchBox
+
+
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (searchRef.current && !searchRef.current.contains(event.target)) {
+      toggleSearch();
+    }
+  };
+
+  if (isSearchOpen) {
+    document.addEventListener('mousedown', handleClickOutside);
+  }
+
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+}, [isSearchOpen]);
 
   // Дебаунс запрос
   useEffect(() => {
@@ -65,6 +83,7 @@ const Search = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 30 }}
+            ref={searchRef}
           transition={{ duration: 0.4 }}
         >
           <div className="container">

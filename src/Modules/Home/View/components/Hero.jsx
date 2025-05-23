@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import heroImg from '../../../../assets/images/pictures/counter.png';
-// import { Link as RouterLink } from 'react-router-dom'; // Переименовали компонент Link
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Lottie from 'lottie-react';
 import cookieAnim from '../../../../assets/scss/animations/pinkAnim.json';
